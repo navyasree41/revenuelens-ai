@@ -1,4 +1,4 @@
-import {
+﻿import {
   AuditEvent,
   Investigation,
   LeakCategorySummary,
@@ -9,7 +9,7 @@ import {
 
 const API_BASE_URL =
   (import.meta as ImportMeta & { env?: { VITE_API_BASE_URL?: string } }).env?.VITE_API_BASE_URL ||
-  'http://localhost:8000';
+  'https://revenuelens-ai.onrender.com';
 
 type BackendLeak = {
   leak_id: string;
@@ -253,3 +253,4 @@ export const api = {
     requestJson<any[]>('/api/recovery-actions').then((rows) => rows.map(mapRecoveryAction)),
   audit: () => requestJson<any[]>('/api/audit').then((rows) => rows.map(mapAuditEvent)),
 };
+
