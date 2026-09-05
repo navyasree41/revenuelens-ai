@@ -1,6 +1,6 @@
-from typing import Dict
+﻿from typing import Dict
 
-from backend.models.schemas import Leak
+from models.schemas import Leak
 
 
 def investigate_leak(leak: Leak) -> Dict:
