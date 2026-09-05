@@ -1,11 +1,11 @@
-from datetime import datetime, timezone
+﻿from datetime import datetime, timezone
 from hashlib import sha256
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.services.investigator import investigate_leak
-from backend.services.leak_detector import detect_leaks, load_transactions
+from services.investigator import investigate_leak
+from services.leak_detector import detect_leaks, load_transactions
 
 app = FastAPI(
     title="RevenueLens AI API",
@@ -254,7 +254,7 @@ def get_audit():
                 "merchant_decision": "Pending Review",
                 "action_taken": "Recommendation generated; awaiting merchant approval",
                 "financial_result": (
-                    f"₹{investigation['recoverable_amount']:,.0f} recoverable pending authorization"
+                    f"â‚¹{investigation['recoverable_amount']:,.0f} recoverable pending authorization"
                 ),
                 "performed_by": "AI Investigator",
                 "hash": f"0x{digest[:24]}",
@@ -262,3 +262,4 @@ def get_audit():
         )
 
     return events
+
