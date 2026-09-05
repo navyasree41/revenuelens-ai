@@ -1,0 +1,6 @@
+{
+  "name": "RevenueLens AI",
+  "description": "AI Revenue Leak Detective — Forensic command center detecting hidden revenue leakage, discount abuse, refund anomalies, and settlement discrepancies for online merchants.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
