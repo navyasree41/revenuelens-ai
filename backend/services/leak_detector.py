@@ -1,9 +1,9 @@
-import csv
+﻿import csv
 import os
 from collections import defaultdict
 from typing import Dict, List
 
-from backend.models.schemas import Leak
+from models.schemas import Leak
 
 
 DATA_FILE = os.path.join(
@@ -70,8 +70,8 @@ def detect_leaks(transactions: List[Dict] | None = None) -> List[Leak]:
                     customer_id=customer_id,
                     evidence=[
                         f"Refund amount is {ratio * 100:.1f}% of transaction value",
-                        f"Transaction value: ₹{amount:,.2f}",
-                        f"Refund value: ₹{refund:,.2f}"
+                        f"Transaction value: â‚¹{amount:,.2f}",
+                        f"Refund value: â‚¹{refund:,.2f}"
                     ],
                     estimated_loss=refund,
                     recoverable_amount=round(refund * 0.50, 2),
@@ -99,7 +99,7 @@ def detect_leaks(transactions: List[Dict] | None = None) -> List[Leak]:
                     evidence=[
                         f"Discount represents {discount_ratio * 100:.1f}% of transaction value",
                         f"Discount applications: {discount_count}",
-                        f"Discount value: ₹{discount:,.2f}"
+                        f"Discount value: â‚¹{discount:,.2f}"
                     ],
                     estimated_loss=discount,
                     recoverable_amount=round(discount * 0.80, 2),
@@ -129,7 +129,7 @@ def detect_leaks(transactions: List[Dict] | None = None) -> List[Leak]:
                     evidence=[
                         f"{attempts} payment attempts recorded",
                         f"Customer has {failed_customer_attempts} related transaction events",
-                        f"Potential transaction value: ₹{amount:,.2f}"
+                        f"Potential transaction value: â‚¹{amount:,.2f}"
                     ],
                     estimated_loss=potential_loss,
                     recoverable_amount=round(potential_loss * 0.70, 2),
@@ -162,9 +162,9 @@ def detect_leaks(transactions: List[Dict] | None = None) -> List[Leak]:
                         order_id=order_id,
                         customer_id=customer_id,
                         evidence=[
-                            f"Expected settlement: ₹{expected:,.2f}",
-                            f"Actual settlement: ₹{actual:,.2f}",
-                            f"Settlement discrepancy: ₹{discrepancy:,.2f}"
+                            f"Expected settlement: â‚¹{expected:,.2f}",
+                            f"Actual settlement: â‚¹{actual:,.2f}",
+                            f"Settlement discrepancy: â‚¹{discrepancy:,.2f}"
                         ],
                         estimated_loss=discrepancy,
                         recoverable_amount=discrepancy,
